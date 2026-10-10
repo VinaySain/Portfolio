@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Vinay Kumar — Web Designer Portfolio</title>
+<style>
+:root{
+    --bg:#0b0d12;
+    --card:#11151d;
+    --text:#f5f7fb;
+    --muted:#a5adbd;
+    --line:#242a36;
+    --accent:#8b7cff;
+    --accent2:#5eead4;
+    --max:1120px
+}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0
+}
+html{
+    scroll-behavior:smooth
+}
+body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+    background:var(--bg);color:var(--text);
+    line-height:1.6
+}
+a{
+    color:inherit;
+    text-decoration:none
+}
+.wrap{
+    max-width:var(--max);
+    margin:auto;
+    padding:0 24px
+}
+nav{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(11,13,18,.82);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--line)
+}
+.nav{
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between
+}
+.logo{
+    font-weight:800;
+    font-size:21px
+}
+.logo span{
+    color:var(--accent)
+}
+.links{
+    display:flex;
+    gap:28px;
+    color:var(--muted);
+    font-size:14px
+}
+.links a:hover{color:#fff}
+.menu{
+    display:none;
+    background:none;
+    border:0;
+    color:#fff;
+    font-size:25px
+}
+.hero{
+    min-height:calc(100vh - 72px);
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    align-items:center;
+    gap:50px;
+    padding:80px 0
+}
+.eyebrow{
+    display:inline-flex;
+    padding:7px 12px;
+    border:1px solid #303646;
+    border-radius:999px;
+    color:var(--accent2);
+    font-size:13px;
+    margin-bottom:22px
+}
+.hero h1{
+    font-size:clamp(48px,7vw,82px);
+    line-height:.98;
+    letter-spacing:-4px;
+    margin-bottom:24px
+}
+.hero h1 span{
+    color:var(--accent)
+}
+.hero p{
+    font-size:18px;
+    color:var(--muted);
+    max-width:650px
+}
+.buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{padding:13px 20px;border-radius:12px;border:1px solid var(--line);font-weight:700;font-size:14px}
+.primary{background:var(--accent);border-color:var(--accent);color:#fff}.btn:hover{transform:translateY(-2px)}
+.visual{height:430px;border:1px solid var(--line);border-radius:28px;background:radial-gradient(circle at 50% 35%,#2a2454 0,#161925 36%,#10131a 70%);display:grid;place-items:center;position:relative;overflow:hidden}
+.orb{width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));filter:blur(1px);box-shadow:0 0 90px #7666ff66}
+.tag{position:absolute;background:#171b25;border:1px solid #303646;border-radius:12px;padding:10px 13px;font-size:12px;box-shadow:0 15px 30px #0005}
+.tag.a{top:55px;left:30px}.tag.b{right:25px;top:125px}.tag.c{bottom:55px;left:80px}
+section{padding:100px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:38px}
+.kicker{color:var(--accent2);font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:800}
+.section-head h2{font-size:42px;letter-spacing:-1.5px;margin-top:8px}
+.section-head p{color:var(--muted);max-width:440px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px}
+.card p{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{padding:22px;border:1px solid var(--line);border-radius:16px}
+.stat strong{display:block;font-size:28px}
+.stat span{color:var(--muted);font-size:13px}
+.skills{display:flex;flex-wrap:wrap;gap:12px}
+.skill{padding:12px 16px;border:1px solid var(--line);background:var(--card);border-radius:12px;color:#d9deea}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.project{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s}
+.project:hover{transform:translateY(-5px);border-color:#444b5d}
+.shot{height:190px;background:linear-gradient(135deg,#191d29,#2a2454);display:grid;place-items:center;font-size:42px}
+.project:nth-child(2) .shot{background:linear-gradient(135deg,#102c2d,#1c1831)}.project:nth-child(3) 
+.shot{background:linear-gradient(135deg,#291c2a,#151d2c)}
+.project-body{padding:22px}
+.project h3{margin-bottom:7px}
+.project p{color:var(--muted);font-size:14px}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
+.chip{font-size:11px;padding:5px 8px;background:#191d26;border-radius:7px;color:#bbc2d0}
+.view{font-size:13px;color:var(--accent2);font-weight:700}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
+.num{color:var(--accent);font-weight:800}.step h3{margin:12px 0 6px}
+.step p{font-size:13px;color:var(--muted)}
+.contact{border:1px solid var(--line);background:linear-gradient(135deg,#141725,#10131a);border-radius:28px;padding:50px;text-align:center}
+.contact h2{font-size:44px;letter-spacing:-1.5px}
+.contact p{color:var(--muted);margin:10px auto 25px;max-width:580px}
+.socials{display:flex;justify-content:center;gap:12px;margin-top:22px}
+.socials a{color:var(--muted);font-size:14px}
+.socials a:hover{color:#fff}
+footer{padding:35px 0;color:#747c8d;border-top:1px solid var(--line);font-size:13px}
+@media(max-width:800px){
+        .links{display:none}
+        .menu{display:block}
+        .hero{grid-template-columns:1fr;padding:60px 0}
+        .visual{height:300px}
+        .about,.projects{grid-template-columns:1fr}
+        .process{grid-template-columns:1fr 1fr}
+        .section-head{display:block}
+        .section-head p{margin-top:12px}
+        .hero h1{letter-spacing:-2px}
+        .contact{padding:35px 20px}
+        .contact h2{font-size:34px}
+    }
+@media(max-width:500px){
+        .wrap{padding:0 18px}
+        .process{grid-template-columns:1fr}
+        .stats{grid-template-columns:1fr}
+        .hero p{font-size:16px}
+    }
+</style>
+</head>
+<body>
+<nav>
+    <div class="wrap nav">
+        <a class="logo" href="#home">VINAY KUMAR SAINI<span>.</span></a>
+        <div class="links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="menu" onclick="alert('Use the section links above on desktop, or scroll through the page on mobile.')">☰</button>
+    </div>
+</nav>
+<main id="home">
+    <div class="wrap hero">
+        <div>
+            <div class="eyebrow">Available for opportunities</div>
+            <h1>Web Designer<br><span>& Developer.</span></h1>
+            <p>I create clean, responsive and user-focused websites that combine thoughtful design with solid front-end development.</p>
+            <div class="buttons">
+                <a class="btn primary" href="#projects">View My Work</a>
+                <a class="btn" href="#contact">Let's Connect</a>
+            </div>
+        </div>
+        <div class="visual">
+            <div class="orb"></div>
+            <div class="tag a">Photoshop Web Template</div>
+            <div class="tag b">Responsive</div>
+            <div class="tag c">Clean Code</div>
+        </div>
+    </div>
+</main>
+<section id="about">
+    <div class="wrap">
+        <div class="section-head">
+            <div>
+                <div class="kicker">01 — About</div>
+                <h2>Design with purpose.</h2>
+            </div>
+            <p>My focus is turning ideas into polished digital experiences that are simple to use and easy to remember.</p>
+        </div>
+        <div class="about">
+            <div class="card">
+                <p>
+                    I'm Vinay Kumar, a web designer and front-end developer who enjoys building modern interfaces. 
+                    I care about visual hierarchy, responsive layouts, accessibility, and details that make a website 
+                    feel professional.
+                </p>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <strong>10+</strong>
+                    <span>Projects</span>
+                </div>
+                <div class="stat">
+                    <strong>3+</strong>
+                    <span>Core tools</span>
+                </div>
+                <div class="stat">
+                    <strong>100%</strong>
+                    <span>Responsive</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="wrap">
+        <div class="section-head">
+            <div>
+                <div class="kicker">02 — Skills</div>
+                <h2>My toolkit.</h2>
+            </div>
+        </div>
+        <div class="skills">
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS3</div>
+            <div class="skill">Basic Adobe Illustrator</div>
+            <div class="skill">Responsive Design</div>
+            <div class="skill">Bootstrap</div>
+            <div class="skill">Photoshop</div>
+        </div>
+    </div>
+</section>
+<section id="projects">
+    <div class="wrap">
+        <div class="section-head">
+            <div>
+                <div class="kicker">03 — Projects</div>
+                <h2>Selected work.</h2>
+            </div>
+            <p>Replace these demo projects with your real work before the interview.</p>
+        </div>
+        <div class="projects">
+            <article class="project">
+                <div class="shot">⌘</div>
+                <div class="project-body">
+                    <h3>Creative Agency</h3>
+                    <p>Modern landing page focused on clear messaging and conversion.</p>
+                    <div class="chips">
+                        <span class="chip">HTML</span>
+                        <span class="chip">CSS</span>
+                        <span class="chip">Bootstrap</span>
+                    </div>
+                    <a class="view" href="#">View project →</a>
+                </div>
+            </article>
+            <article class="project">
+                <div class="shot">◈</div>
+                <div class="project-body">
+                    <h3>Business Dashboard</h3>
+                    <p>Responsive dashboard concept with cards, charts and clean navigation.</p>
+                    <div class="chips">
+                        <span class="chip">UI/UX</span>
+                        <span class="chip">JavaScript</span>
+                    </div>
+                    <a class="view" href="#">View project →</a>
+                </div>
+            </article>
+            <article class="project">
+                <div class="shot">✦</div>
+                <div class="project-body">
+                    <h3>E-commerce UI</h3>
+                    <p>Product-focused shopping interface designed for mobile and desktop.</p>
+                    <div class="chips">
+                        <span class="chip">Figma</span>
+                        <span class="chip">CSS</span>
+                    </div>
+                    <a class="view" href="#">View project →</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="process">
+    <div class="wrap">
+        <div class="section-head">
+            <div>
+                <div class="kicker">04 — Process</div>
+                <h2>How I work.</h2>
+            </div>
+        </div>
+        <div class="process">
+            <div class="step">
+                <span class="num">01</span>
+                <h3>Discover</h3>
+                <p>Understand goals, audience and project requirements.</p>
+            </div>
+            <div class="step">
+                <span class="num">02</span>
+                <h3>Design</h3>
+                <p>Create structure, visual direction and responsive layouts.</p>
+            </div>
+            <div class="step">
+                <span class="num">03</span>
+                <h3>Develop</h3>
+                <p>Build clean, reusable and responsive front-end code.</p>
+            </div>
+            <div class="step">
+                <span class="num">04</span>
+                <h3>Refine</h3>
+                <p>Test, polish interactions and improve the final experience.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="wrap">
+        <div class="contact">
+            <div class="kicker">05 — Contact</div>
+            <h2>Let's build something great.</h2>
+            <p>I'm open to internships, junior web-design roles and freelance opportunities.</p>
+            <a class="btn primary" href="mailto:vkvinay913@gmail.com">Email Me</a>
+            <div class="socials">
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Resume</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">© 2026 Vinay Kumar · Web Designer & Front-End Developer</div>
+</footer>
+</body>
+</html>
