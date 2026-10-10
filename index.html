@@ -5,13 +5,13 @@
 <title>Vinay Kumar — Web Designer Portfolio</title>
 <style>
 :root{
-    --bg:#0b0d12;
-    --card:#11151d;
-    --text:#f5f7fb;
-    --muted:#a5adbd;
-    --line:#242a36;
-    --accent:#8b7cff;
-    --accent2:#5eead4;
+    --bg:#f7f8fa;
+    --card:#ffffff;
+    --text:#171b24;
+    --muted:#667085;
+    --line:#dce1e8;
+    --accent:#2563eb;
+    --accent2:#2563eb;
     --max:1120px
 }
 *{
@@ -40,7 +40,7 @@ nav{
     position:sticky;
     top:0;
     z-index:20;
-    background:rgba(11,13,18,.82);
+    background:rgba(247,248,250,.94);
     backdrop-filter:blur(16px);
     border-bottom:1px solid var(--line)
 }
@@ -63,7 +63,7 @@ nav{
     color:var(--muted);
     font-size:14px
 }
-.links a:hover{color:#fff}
+.links a:hover{color:var(--accent)}
 .menu{
     display:none;
     background:none;
@@ -82,9 +82,9 @@ nav{
 .eyebrow{
     display:inline-flex;
     padding:7px 12px;
-    border:1px solid #303646;
+    border:1px solid var(--line);
     border-radius:999px;
-    color:var(--accent2);
+    color:var(--accent);
     font-size:13px;
     margin-bottom:22px
 }
@@ -105,13 +105,13 @@ nav{
 .buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
 .btn{padding:13px 20px;border-radius:12px;border:1px solid var(--line);font-weight:700;font-size:14px}
 .primary{background:var(--accent);border-color:var(--accent);color:#fff}.btn:hover{transform:translateY(-2px)}
-.visual{height:430px;border:1px solid var(--line);border-radius:28px;background:radial-gradient(circle at 50% 35%,#2a2454 0,#161925 36%,#10131a 70%);display:grid;place-items:center;position:relative;overflow:hidden}
-.orb{width:250px;height:250px;border-radius:50%;object-fit:cover;object-position:center 30%;border:4px solid rgba(255,255,255,.82);background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 0 10px #8b7cff18,0 0 70px #7666ff66;position:relative;z-index:1}\n        .visual:after{content:"";position:absolute;width:290px;height:290px;border:1px solid #8b7cff55;border-radius:50%;pointer-events:none}\n        @media(max-width:800px){.orb{width:190px;height:190px}.visual:after{width:225px;height:225px}}
-.tag{position:absolute;background:#171b25;border:1px solid #303646;border-radius:12px;padding:10px 13px;font-size:12px;box-shadow:0 15px 30px #0005}
+.visual{height:430px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#e9eef8 0%,#dce6f7 55%,#f7f8fa 100%);display:grid;place-items:center;position:relative;overflow:hidden}
+.orb{width:250px;height:250px;border-radius:50%;object-fit:cover;object-position:center 30%;border:4px solid #ffffff;background:linear-gradient(135deg,#2563eb,#93b4ff);box-shadow:0 0 0 10px #2563eb12,0 8px 28px #1e3a8a20;position:relative;z-index:1}\n        .visual:after{content:"";position:absolute;width:290px;height:290px;border:1px solid #2563eb35;border-radius:50%;pointer-events:none}\n        @media(max-width:800px){.orb{width:190px;height:190px}.visual:after{width:225px;height:225px}}
+.tag{position:absolute;background:#ffffff;border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-size:12px;box-shadow:0 8px 24px #17255412}
 .tag.a{top:55px;left:30px}.tag.b{right:25px;top:125px}.tag.c{bottom:55px;left:80px}
 section{padding:100px 0}
 .section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:38px}
-.kicker{color:var(--accent2);font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:800}
+.kicker{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:800}
 .section-head h2{font-size:42px;letter-spacing:-1.5px;margin-top:8px}
 .section-head p{color:var(--muted);max-width:440px}
 .about{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -122,30 +122,30 @@ section{padding:100px 0}
 .stat strong{display:block;font-size:28px}
 .stat span{color:var(--muted);font-size:13px}
 .skills{display:flex;flex-wrap:wrap;gap:12px}
-.skill{padding:12px 16px;border:1px solid var(--line);background:var(--card);border-radius:12px;color:#d9deea}
+.skill{padding:12px 16px;border:1px solid var(--line);background:var(--card);border-radius:12px;color:#344054}
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .project{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s}
-.project:hover{transform:translateY(-5px);border-color:#444b5d}
-.shot{height:190px;background:linear-gradient(135deg,#191d29,#2a2454);display:grid;place-items:center;font-size:42px}\n        .project-shot{color:#fff;transition:filter .2s}.project-shot:hover{filter:brightness(1.18)}
-.project:nth-child(2) .shot{background:linear-gradient(135deg,#102c2d,#1c1831)}.project:nth-child(3) 
-.shot{background:linear-gradient(135deg,#291c2a,#151d2c)}
+.project:hover{transform:translateY(-5px);border-color:#9bb8f5}
+.shot{height:190px;background:linear-gradient(135deg,#e9eef8,#d6e2fa);display:grid;place-items:center;font-size:42px}\n        .project-shot{color:#fff;transition:filter .2s}.project-shot:hover{filter:brightness(1.18)}
+.project:nth-child(2) .shot{background:linear-gradient(135deg,#e6eefb,#eef2f8)}.project:nth-child(3) 
+.shot{background:linear-gradient(135deg,#e3eafa,#f0f3f8)}
 .project-body{padding:22px}
 .project h3{margin-bottom:7px}
 .project p{color:var(--muted);font-size:14px}
 .chips{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
-.chip{font-size:11px;padding:5px 8px;background:#191d26;border-radius:7px;color:#bbc2d0}
-.view{font-size:13px;color:var(--accent2);font-weight:700}
+.chip{font-size:11px;padding:5px 8px;background:#eef2f7;border-radius:7px;color:#475467}
+.view{font-size:13px;color:var(--accent);font-weight:700}
 .process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .step{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--card)}
 .num{color:var(--accent);font-weight:800}.step h3{margin:12px 0 6px}
 .step p{font-size:13px;color:var(--muted)}
-.contact{border:1px solid var(--line);background:linear-gradient(135deg,#141725,#10131a);border-radius:28px;padding:50px;text-align:center}
+.contact{border:1px solid var(--line);background:linear-gradient(135deg,#eef3fc,#f7f8fa);border-radius:28px;padding:50px;text-align:center}
 .contact h2{font-size:44px;letter-spacing:-1.5px}
 .contact p{color:var(--muted);margin:10px auto 25px;max-width:580px}
 .socials{display:flex;justify-content:center;gap:12px;margin-top:22px}
 .socials a{color:var(--muted);font-size:14px}
-.socials a:hover{color:#fff}
-footer{padding:35px 0;color:#747c8d;border-top:1px solid var(--line);font-size:13px}
+.socials a:hover{color:var(--accent)}
+footer{padding:35px 0;color:#7b8494;border-top:1px solid var(--line);font-size:13px}
 @media(max-width:800px){
         .links{display:none}
         .menu{display:block}
