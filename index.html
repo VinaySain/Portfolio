@@ -66,11 +66,24 @@ nav{
 .links a:hover{color:var(--accent)}
 .menu{
     display:none;
-    background:none;
-    border:0;
-    color:#fff;
-    font-size:25px
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:var(--card);
+    color:var(--text);
+    font-size:25px;
+    line-height:1;
+    cursor:pointer;
+    flex-shrink:0
 }
+.menu:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.menu .menu-close{display:none}
+nav.menu-open .menu .menu-open-icon{display:none}
+nav.menu-open .menu .menu-close{display:inline}
+nav.menu-open .links{display:flex}
 .hero{
     min-height:calc(100vh - 72px);
     display:grid;
@@ -147,8 +160,27 @@ section{padding:100px 0}
 .socials a:hover{color:var(--accent)}
 footer{padding:35px 0;color:#7b8494;border-top:1px solid var(--line);font-size:13px}
 @media(max-width:800px){
-        .links{display:none}
-        .menu{display:block}
+        .nav{position:relative;gap:12px}
+        .menu{display:flex}
+        .links{
+            display:none;
+            position:absolute;
+            top:calc(100% + 1px);
+            left:0;
+            right:0;
+            padding:12px;
+            flex-direction:column;
+            gap:2px;
+            background:var(--card);
+            border:1px solid var(--line);
+            border-top:0;
+            border-radius:0 0 14px 14px;
+            box-shadow:0 14px 28px rgba(23,27,36,.10);
+            color:var(--text)
+        }
+        .links a{padding:12px 10px;border-radius:8px}
+        .links a:hover{background:var(--bg)}
+        .logo{font-size:clamp(14px,3.8vw,21px);letter-spacing:-.4px}
         .hero{grid-template-columns:1fr;padding:60px 0}
         .visual{height:300px}
         .about,.projects{grid-template-columns:1fr}
@@ -161,24 +193,125 @@ footer{padding:35px 0;color:#7b8494;border-top:1px solid var(--line);font-size:1
     }
 @media(max-width:500px){
         .wrap{padding:0 18px}
+        .shot{height:220px}
+        .project-body{padding:19px}
         .process{grid-template-columns:1fr}
         .stats{grid-template-columns:1fr}
         .hero p{font-size:16px}
     }
+
+.project-shot img{max-width:100%}
+@media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .project,.project-shot img,.project-shot::after,.btn{transition:none}
+}
+
+/* Portfolio project cards: consistent image frames and aligned copy */
+.projects{
+    align-items:stretch;
+    grid-auto-rows:1fr;
+}
+.project{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    height:100%;
+}
+.project-shot{
+    display:block;
+    width:100%;
+    aspect-ratio:16 / 10;
+    height:auto;
+    min-height:190px;
+    flex:0 0 auto;
+    background:#e9e5df;
+}
+.project-shot img{
+    display:block;
+    width:100%;
+    height:100%;
+    min-height:190px;
+    object-fit:cover;
+    object-position:center;
+}
+.project-body{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    flex:1;
+    min-width:0;
+}
+.project-body h3{
+    font-size:18px;
+    line-height:1.35;
+    overflow-wrap:anywhere;
+}
+.project-body p{
+    line-height:1.65;
+    margin-top:2px;
+    overflow-wrap:anywhere;
+}
+.project-body .chips{margin:15px 0;gap:7px}
+.project-body .view{display:inline-block;margin-top:auto;padding-top:4px}
+.project .chip{line-height:1.45}
+.project-shot:focus-visible{outline-offset:-4px}
+/* A purpose-built thumbnail avoids showing an unrelated image for the AI project. */
+.ai-project-art{
+    width:100%;
+    height:100%;
+    min-height:190px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:clamp(18px,3vw,30px);
+    color:#f8f5ee;
+    background:
+        radial-gradient(ellipse at 80% 20%,rgba(205,151,98,.3),transparent 35%),
+        linear-gradient(135deg,#292820 0%,#484236 52%,#78634d 100%);
+    text-align:left;
+}
+.ai-project-art .art-label{
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#e2c6a5;
+}
+.ai-project-art strong{
+    display:block;
+    font-size:clamp(27px,3vw,40px);
+    line-height:1;
+    letter-spacing:-1.5px;
+}
+.ai-project-art .art-bottom{
+    font-size:12px;
+    color:#e9ddcf;
+    border-top:1px solid rgba(255,255,255,.25);
+    padding-top:12px;
+}
+@media(max-width:800px){
+    .project-shot{aspect-ratio:16 / 10;min-height:0}
+    .project-shot img{min-height:0}
+}
+@media(max-width:500px){
+    .project-shot{aspect-ratio:16 / 10;height:auto;min-height:0}
+    .project-shot img{min-height:0}
+    .project-body h3{font-size:17px}
+}
+
 </style>
 </head>
 <body>
 <nav>
     <div class="wrap nav">
         <a class="logo" href="#home">VINAY KUMAR SAINI<span>.</span></a>
-        <div class="links">
+        <div class="links" id="primary-navigation">
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#process">Process</a>
             <a href="#contact">Contact</a>
         </div>
-        <button class="menu" onclick="alert('Use the section links above on desktop, or scroll through the page on mobile.')">☰</button>
+        <button class="menu" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false"><span class="menu-open-icon" aria-hidden="true">☰</span><span class="menu-close" aria-hidden="true">×</span></button>
     </div>
 </nav>
 <main id="home">
@@ -326,7 +459,7 @@ footer{padding:35px 0;color:#7b8494;border-top:1px solid var(--line);font-size:1
                 <div class="kicker">Independent &amp; Other Projects</div>
                 <h2 style="font-size:28px;letter-spacing:-.6px">Selected projects</h2>
             </div>
-            <p>Additional websites and AI-assisted experiments.</p>
+            <p>A brand website and an independent AI interface experiment.</p>
         </div>
         <div class="projects">
             <article class="project">
@@ -342,11 +475,15 @@ footer{padding:35px 0;color:#7b8494;border-top:1px solid var(--line);font-size:1
             </article>
             <article class="project">
                 <a class="shot project-shot" href="https://vinaysain.github.io/AI_CLAUDE/" target="_blank" rel="noopener noreferrer" aria-label="Open AI Claude project">
-                    <img src="https://thehouseofaakar.com/images/about-us/thoa-about-us-page_05.png" class="img-fluid" alt="AI Claude project">
+                    <div class="ai-project-art" role="img" aria-label="AI Claude project thumbnail">
+                        <span class="art-label">Independent project</span>
+                        <strong>AI<br>CLAUDE</strong>
+                        <span class="art-bottom">Interface design · HTML · CSS · JavaScript</span>
+                    </div>
                 </a>
                 <div class="project-body">
                     <h3>AI Claude Project</h3>
-                    <p>An AI-focused web project exploring a clean interface and interactive experience.</p>
+                    <p>An independent AI interface project built to explore layout, interaction and front-end styling.</p>
                     <div class="chips"><span class="chip">AI</span><span class="chip">HTML &amp; CSS</span><span class="chip">JavaScript</span></div>
                     <a class="view" href="https://vinaysain.github.io/AI_CLAUDE/" target="_blank" rel="noopener noreferrer">View live project ↗</a>
                 </div>
@@ -416,5 +553,58 @@ footer{padding:35px 0;color:#7b8494;border-top:1px solid var(--line);font-size:1
 <footer>
     <div class="wrap">© 2026 Vinay Kumar · Web Designer & Front-End Developer</div>
 </footer>
+
+<script>
+(() => {
+    const nav = document.querySelector('nav');
+    const menuButton = document.querySelector('.menu');
+    const navLinks = document.querySelectorAll('#primary-navigation a');
+
+    if (!nav || !menuButton) return;
+
+    function setMenuOpen(isOpen) {
+        nav.classList.toggle('menu-open', isOpen);
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+        menuButton.setAttribute(
+            'aria-label',
+            isOpen ? 'Close navigation menu' : 'Open navigation menu'
+        );
+    }
+
+    menuButton.addEventListener('click', () => {
+        setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => setMenuOpen(false));
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') setMenuOpen(false);
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 800) setMenuOpen(false);
+    });
+})();
+</script>
+
+
+<script>
+document.querySelectorAll('.project-shot img').forEach((img) => {
+    img.addEventListener('error', () => {
+        img.style.display = 'none';
+        const frame = img.closest('.project-shot');
+        if (frame && !frame.querySelector('.image-fallback')) {
+            const fallback = document.createElement('span');
+            fallback.className = 'image-fallback';
+            fallback.textContent = img.alt || 'Project preview';
+            fallback.style.cssText = 'display:grid;place-items:center;width:100%;height:100%;min-height:190px;padding:20px;text-align:center;color:#51483d;background:linear-gradient(135deg,#eee7dc,#d9cbb8);font-size:18px;font-weight:700;';
+            frame.prepend(fallback);
+        }
+    }, { once: true });
+});
+</script>
+
 </body>
 </html>
