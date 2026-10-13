@@ -298,6 +298,32 @@ footer{padding:35px 0;color:#7b8494;border-top:1px solid var(--line);font-size:1
     .project-body h3{font-size:17px}
 }
 
+
+.socials a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    min-height:42px;
+    padding:10px 16px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:var(--card);
+    color:var(--text);
+    font-weight:650;
+    text-decoration:none;
+    transition:transform .2s ease,border-color .2s ease,background .2s ease
+}
+.socials a:hover{
+    color:var(--text);
+    border-color:var(--accent);
+    transform:translateY(-2px)
+}
+@media(max-width:500px){
+    .socials{flex-wrap:wrap}
+    .socials a{flex:1 1 145px}
+}
+
 </style>
 </head>
 <body>
@@ -542,9 +568,8 @@ footer{padding:35px 0;color:#7b8494;border-top:1px solid var(--line);font-size:1
             <p>I'm open to internships, junior web-design roles and freelance opportunities.</p>
             <a class="btn primary" href="mailto:vkvinay913@gmail.com">Email Me</a>
             <div class="socials">
-                <a href="https://github.com/VinaySain">GitHub</a>
-                <!-- <a href="#">LinkedIn</a>
-                <a href="#">Resume</a> -->
+                <a href="https://github.com/VinaySain" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                <a href="Vinay_Kumar_Saini_Resume_Updated.pdf" download="Vinay_Kumar_Saini_Resume.pdf">Download Resume ↓</a>
             </div>
         </div>
     </div>
